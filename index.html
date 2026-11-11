@@ -17,11 +17,13 @@
         }
 
         :root {
-    --bg-color: #F5F2EB;       /* Warm cream/off-white */
-    --text-color: #2C2A26;     /* Deep charcoal, softer than pure black */
-    --accent-color: #8B7E74;   /* Muted taupe for secondary text */
-    --card-bg: #FFFFFF;        /* Pure white for artwork cards to pop */
-    --border-color: #E3DFD8;   /* Soft beige border */
+            /* Cold Palette Variables */
+            --bg-color: #F0F4F8;       /* Cool, pale blue-grey */
+            --card-bg: #FFFFFF;        /* Pure white for art contrast */
+            --text-color: #1E293B;     /* Deep slate blue-black */
+            --accent-color: #64748B;   /* Muted steel grey */
+            --border-color: #CBD5E1;   /* Light cool grey */
+            --hover-accent: #0EA5E9;   /* Vibrant sky blue */
         }
 
         html {
@@ -56,7 +58,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(252, 252, 252, 0.95);
+            background: rgba(240, 244, 248, 0.95);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
@@ -126,11 +128,13 @@
             transition: all 0.4s ease;
             background: transparent;
             cursor: pointer;
+            color: var(--text-color);
         }
 
         .btn:hover {
-            background: var(--text-color);
-            color: var(--bg-color);
+            background: var(--hover-accent);
+            border-color: var(--hover-accent);
+            color: #FFFFFF;
         }
 
         /* --- GALLERY SECTION --- */
@@ -158,7 +162,7 @@
             position: relative;
             overflow: hidden;
             background: var(--card-bg);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.05);
             transition: transform 0.4s ease;
         }
 
@@ -183,7 +187,8 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            /* Updated to use dark slate blue instead of pure black */
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
             padding: 3rem 2rem 2rem;
             color: white;
             opacity: 0;
@@ -204,7 +209,7 @@
 
         .overlay p {
             font-size: 0.8rem;
-            opacity: 0.8;
+            opacity: 0.9;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -219,7 +224,7 @@
         .about-container p {
             font-size: 1.15rem;
             margin-bottom: 2rem;
-            color: #333;
+            color: var(--text-color);
         }
 
         /* --- FOOTER --- */
@@ -263,7 +268,7 @@
             height: 1px;
             bottom: -5px;
             left: 0;
-            background-color: var(--bg-color);
+            background-color: var(--hover-accent);
             transition: width 0.3s ease;
         }
 
@@ -281,22 +286,11 @@
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            header {
-                padding: 1.2rem 5%;
-            }
-            nav ul {
-                gap: 1.5rem;
-            }
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .gallery-item img {
-                height: 350px;
-            }
-            .hero h1 {
-                font-size: 3.5rem;
-            }
+            header { padding: 1.2rem 5%; }
+            nav ul { gap: 1.5rem; }
+            .gallery-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .gallery-item img { height: 350px; }
+            .hero h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
@@ -326,7 +320,6 @@
         <h2 class="section-title">The Collection</h2>
         <div class="gallery-grid">
             
-            <!-- Artwork 1 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte1/600/800" alt="Nay Arte Work 1">
                 <div class="overlay">
@@ -335,7 +328,6 @@
                 </div>
             </div>
 
-            <!-- Artwork 2 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte2/600/800" alt="Nay Arte Work 2">
                 <div class="overlay">
@@ -344,7 +336,6 @@
                 </div>
             </div>
 
-            <!-- Artwork 3 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte3/600/800" alt="Nay Arte Work 3">
                 <div class="overlay">
@@ -353,7 +344,6 @@
                 </div>
             </div>
 
-            <!-- Artwork 4 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte4/600/800" alt="Nay Arte Work 4">
                 <div class="overlay">
@@ -362,7 +352,6 @@
                 </div>
             </div>
 
-            <!-- Artwork 5 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte5/600/800" alt="Nay Arte Work 5">
                 <div class="overlay">
@@ -371,7 +360,6 @@
                 </div>
             </div>
 
-            <!-- Artwork 6 -->
             <div class="gallery-item">
                 <img src="https://picsum.photos/seed/nayarte6/600/800" alt="Nay Arte Work 6">
                 <div class="overlay">
