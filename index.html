@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undead | Art Portfolio</title>
+    <title>Nay Arte | Contemporary Portfolio</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* --- RESET & BASE --- */
         *, *::before, *::after {
@@ -17,11 +17,11 @@
         }
 
         :root {
-            --bg-color: #f9f9f9;
-            --text-color: #1a1a1a;
-            --accent-color: #555;
+            --bg-color: #fcfcfc;
+            --text-color: #111111;
+            --accent-color: #666666;
             --card-bg: #ffffff;
-            --border-color: #e0e0e0;
+            --border-color: #eaeaea;
         }
 
         html {
@@ -29,21 +29,26 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
             font-weight: 300;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 400;
+        h1, h2, h3, .logo {
+            font-family: 'Cormorant Garamond', serif;
         }
 
         a {
             text-decoration: none;
             color: inherit;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
         }
 
         /* --- NAVIGATION --- */
@@ -51,8 +56,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(249, 249, 249, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(252, 252, 252, 0.95);
+            backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-color);
             z-index: 1000;
             padding: 1.5rem 5%;
@@ -62,27 +67,22 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         nav a {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
+            letter-spacing: 2px;
+            font-weight: 500;
         }
 
         /* --- HERO SECTION --- */
@@ -94,28 +94,38 @@
             align-items: center;
             text-align: center;
             padding: 0 5%;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 1rem;
-            line-height: 1.1;
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            margin-bottom: 1.5rem;
+            line-height: 1;
+            font-weight: 300;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--accent-color);
-            max-width: 600px;
-            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-bottom: 3rem;
+            letter-spacing: 0.5px;
         }
 
         .btn {
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border: 1px solid var(--text-color);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            background: transparent;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -125,20 +135,22 @@
 
         /* --- GALLERY SECTION --- */
         .section {
-            padding: 6rem 5%;
+            padding: 8rem 5%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+            font-style: italic;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -146,21 +158,24 @@
             position: relative;
             overflow: hidden;
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 400px;
+            height: 450px;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s ease, opacity 0.3s ease;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
-            opacity: 0.8;
+            transform: scale(1.08);
         }
 
         .gallery-item .overlay {
@@ -168,97 +183,119 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.7));
-            padding: 2rem 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 3rem 2rem 2rem;
             color: white;
-            transform: translateY(100%);
-            transition: transform 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
         }
 
         .gallery-item:hover .overlay {
+            opacity: 1;
             transform: translateY(0);
         }
 
         .overlay h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.3rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
         }
 
         .overlay p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* --- ABOUT SECTION --- */
         .about-container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
         .about-container p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #444;
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            color: #333;
         }
 
-        /* --- CONTACT / FOOTER --- */
+        /* --- FOOTER --- */
         footer {
             background: var(--text-color);
             color: var(--bg-color);
             text-align: center;
-            padding: 4rem 5%;
+            padding: 6rem 5% 3rem;
         }
 
         footer h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
+            font-weight: 300;
         }
 
         footer p {
-            margin-bottom: 2rem;
-            opacity: 0.8;
+            margin-bottom: 3rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 3rem;
+            margin-bottom: 4rem;
         }
 
         .social-links a {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
+            letter-spacing: 2px;
+            position: relative;
         }
 
-        .social-links a:hover {
-            border-bottom-color: var(--bg-color);
+        .social-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--bg-color);
+            transition: width 0.3s ease;
+        }
+
+        .social-links a:hover::after {
+            width: 100%;
         }
 
         .copyright {
-            font-size: 0.8rem;
-            opacity: 0.5;
+            font-size: 0.75rem;
+            opacity: 0.4;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2rem;
+            letter-spacing: 1px;
         }
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             header {
-                padding: 1rem 5%;
+                padding: 1.2rem 5%;
             }
             nav ul {
                 gap: 1.5rem;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
             .gallery-item img {
-                height: 300px;
+                height: 350px;
+            }
+            .hero h1 {
+                font-size: 3.5rem;
             }
         }
     </style>
@@ -267,79 +304,79 @@
 
     <!-- Navigation -->
     <header>
-        <a href="#" class="logo">Undead</a>
+        <a href="#" class="logo">Nay Arte</a>
         <nav>
             <ul>
-                <li><a href="#gallery">Work</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#gallery">Collection</a></li>
+                <li><a href="#about">Studio</a></li>
+                <li><a href="#contact">Inquiries</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Visual Explorations</h1>
-        <p>A curated collection of contemporary works exploring form, light, and negative space.</p>
-        <a href="#gallery" class="btn">View Portfolio</a>
+        <h1>Nay Arte</h1>
+        <p>Curating the intersection of modern expression and timeless form.</p>
+        <a href="#gallery" class="btn">Explore Works</a>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="section">
-        <h2 class="section-title">Selected Works</h2>
+        <h2 class="section-title">The Collection</h2>
         <div class="gallery-grid">
             
             <!-- Artwork 1 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art1/600/800" alt="Artwork 1">
+                <img src="https://picsum.photos/seed/nayarte1/600/800" alt="Nay Arte Work 1">
                 <div class="overlay">
-                    <h3>Echoes in Oil</h3>
+                    <h3>Morning Light</h3>
                     <p>Oil on Canvas, 2025</p>
                 </div>
             </div>
 
             <!-- Artwork 2 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art2/600/800" alt="Artwork 2">
+                <img src="https://picsum.photos/seed/nayarte2/600/800" alt="Nay Arte Work 2">
                 <div class="overlay">
-                    <h3>Fractured Light</h3>
-                    <p>Digital Mixed Media, 2026</p>
+                    <h3>Silent Geometry</h3>
+                    <p>Mixed Media, 2026</p>
                 </div>
             </div>
 
             <!-- Artwork 3 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art3/600/800" alt="Artwork 3">
+                <img src="https://picsum.photos/seed/nayarte3/600/800" alt="Nay Arte Work 3">
                 <div class="overlay">
-                    <h3>Urban Decay</h3>
+                    <h3>Urban Solitude</h3>
                     <p>Photography, 2024</p>
                 </div>
             </div>
 
             <!-- Artwork 4 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art4/600/800" alt="Artwork 4">
+                <img src="https://picsum.photos/seed/nayarte4/600/800" alt="Nay Arte Work 4">
                 <div class="overlay">
-                    <h3>Silent Geometry</h3>
-                    <p>Charcoal on Paper, 2026</p>
+                    <h3>Echoes</h3>
+                    <p>Charcoal Study, 2026</p>
                 </div>
             </div>
 
             <!-- Artwork 5 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art5/600/800" alt="Artwork 5">
+                <img src="https://picsum.photos/seed/nayarte5/600/800" alt="Nay Arte Work 5">
                 <div class="overlay">
                     <h3>The Void</h3>
-                    <p>Acrylic, 2025</p>
+                    <p>Acrylic Pour, 2025</p>
                 </div>
             </div>
 
             <!-- Artwork 6 -->
             <div class="gallery-item">
-                <img src="https://picsum.photos/seed/art6/600/800" alt="Artwork 6">
+                <img src="https://picsum.photos/seed/nayarte6/600/800" alt="Nay Arte Work 6">
                 <div class="overlay">
                     <h3>Resonance</h3>
-                    <p>Sculpture / Bronze, 2023</p>
+                    <p>Bronze Sculpture, 2023</p>
                 </div>
             </div>
 
@@ -348,24 +385,24 @@
 
     <!-- About Section -->
     <section id="about" class="section">
-        <h2 class="section-title">About the Artist</h2>
+        <h2 class="section-title">The Studio</h2>
         <div class="about-container">
-            <p>Undead is a multidisciplinary artist based in the digital and physical realms. Their work investigates the intersection of human emotion and structural decay, utilizing both traditional mediums and modern digital tools.</p>
-            <p>Available for commissions, gallery exhibitions, and collaborative projects.</p>
+            <p>Nay Arte is a contemporary creative practice dedicated to exploring the subtle narratives found in everyday objects and landscapes. We believe in art that breathes—pieces that evolve with the light and the viewer.</p>
+            <p>Based in the heart of the city, our studio is open for private viewings and collaborative commissions.</p>
         </div>
     </section>
 
     <!-- Footer / Contact -->
     <footer id="contact">
-        <h2>Get in Touch</h2>
-        <p>For inquiries, commissions, or just to say hello.</p>
+        <h2>Commission a Piece</h2>
+        <p>We invite you to discuss your vision with us.</p>
         <div class="social-links">
-            <a href="mailto:hello@undead.art">Email</a>
+            <a href="mailto:studio@nayarte.com">Email Studio</a>
             <a href="#">Instagram</a>
-            <a href="#">Behance</a>
+            <a href="#">Artsy</a>
         </div>
         <div class="copyright">
-            &copy; 2026 Undead. All rights reserved.
+            &copy; 2026 Nay Arte. All rights reserved.
         </div>
     </footer>
 
